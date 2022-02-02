@@ -4,7 +4,7 @@ const playDrum = (e) => {
     audio.currentTime = 0; //rewind to the start
     audio.play();
 
-    const key = document.querySelector(`div[data-key="${e.keyCode}"]`).classList.add('playing');
+    document.querySelector(`div[data-key="${e.keyCode}"]`).classList.add('playing');
 
 }
 
