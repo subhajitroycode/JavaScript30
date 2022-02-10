@@ -35,8 +35,7 @@ body {
   font-size: 20px;
   background-size: cover;
   background-position: center;
-  /*Each of them are going to evenly distribute the extra space among them*/
-  flex: 1;
+  flex: 1; /*Each of them are going to evenly distribute the extra space among them*/
   display: flex;
   justify-content: center;
   align-items: center;
