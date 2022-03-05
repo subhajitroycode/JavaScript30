@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>JS Reference VS Copy</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS Reference VS Copy</title>
+  </head>
+  <body>
+    <script>
+      // start with strings, numbers and booleans
 
-  <script>
-    // start with strings, numbers and booleans
+      // Let's say we have an array
+      const players = ["Wes", "Sarah", "Ryan", "Poppy"];
 
-    // Let's say we have an array
-    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+      // and we want to make a copy of it.
+      // const team = players;
+      // console.log(players, team);
+      // You might think we can just do something like this:
+      // team[3] = "Subhajit";
+      // console.log(players, team);
+      // however what happens when we update that array?
 
-    // and we want to make a copy of it.
+      // now here is the problem!
 
-    // You might think we can just do something like this:
+      // oh no - we have edited the original array too!
 
-    // however what happens when we update that array?
+      // Why? It's because that is an array reference, not an array copy. They both point to the same array!
 
-    // now here is the problem!
+      // So, how do we fix this? We take a copy instead!
 
-    // oh no - we have edited the original array too!
+      // one way
+      const team4 = players.slice();
+      team4[4] = "Biswajit";
+      console.log(players, team4);
+      // or create a new array and concat the old one in
 
-    // Why? It's because that is an array reference, not an array copy. They both point to the same array!
+      // or use the new ES6 Spread
+      const team2 = [...players];
+      team2[3] = "Subhajit";
+      console.log(players, team2);
+      // now when we update it, the original one isn't changed
+      const team3 = Array.from(players);
+      team3[3] = "Tamojit";
+      console.log(players, team3);
+      // The same thing goes for objects, let's say we have a person object
 
-    // So, how do we fix this? We take a copy instead!
+      // with Objects
+      const person = {
+        name: "Wes Bos",
+        age: 80,
+      };
 
-    // one way
+      // and think we make a copy:
 
-    // or create a new array and concat the old one in
+      // how do we take a copy instead?
 
-    // or use the new ES6 Spread
-
-    // now when we update it, the original one isn't changed
-
-    // The same thing goes for objects, let's say we have a person object
-
-    // with Objects
-    const person = {
-      name: 'Wes Bos',
-      age: 80
-    };
-
-    // and think we make a copy:
-
-    // how do we take a copy instead?
-
-    // We will hopefully soon see the object ...spread
-
-    // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
-
-  </script>
-
-</body>
+      // We will hopefully soon see the object ...spread
+      const wes = { ...person };
+      wes.name = "Wes";
+      console.log(person, wes);
+      // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+    </script>
+  </body>
 </html>
