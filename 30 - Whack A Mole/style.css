@@ -21,6 +21,19 @@ h1 {
   margin-bottom: 0;
 }
 
+button {
+  text-align: center;
+  padding: 10px 50px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 .score {
   background: rgba(255,255,255,0.2);
   padding: 0 3rem;
